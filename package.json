@@ -4,6 +4,10 @@
   "private": true,
   "type": "module",
   "description": "Control whether archived sessions appear in the DSH sidebar, from Settings > General.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/surkaa/dsh-archive-viewer.git"
+  },
   "exports": {
     ".": "./index.js",
     "./client": "./client.js",

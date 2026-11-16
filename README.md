@@ -17,11 +17,10 @@ When the sidebar workspace list is not composed, the switch is disabled and expl
 
 The bundle has no build step and no runtime npm dependencies. Transfer the whole package directory (the folder containing `package.json`) and install it from DSH:
 
-1. Copy the directory to the other computer, or clone your repository there:
+1. Copy the directory to the other computer, or clone the repository there:
    ```sh
-   git clone <your-repo-url> dsh-archive-viewer
+   git clone https://github.com/surkaa/dsh-archive-viewer.git dsh-archive-viewer
    ```
-   On the source machine, push the repository first: `git remote add origin <your-repo-url> && git push -u origin main --tags`.
 2. In DSH open **Settings → Plugins → Add plugin**.
 3. Paste the absolute path of the copied directory (for example `C:\Users\you\Code\dsh-archive-viewer`) or the repository URL, then confirm.
 4. If the bundle is added disabled, enable it. Refresh the page; restart DSH if the plugin manager asks for a restart.
@@ -52,9 +51,8 @@ Only English and Simplified Chinese copy are bundled; other languages fall back 
 
 1. 复制目录，或直接克隆仓库：
    ```sh
-   git clone <你的仓库地址> dsh-archive-viewer
+   git clone https://github.com/surkaa/dsh-archive-viewer.git dsh-archive-viewer
    ```
-   在源电脑上先推送：`git remote add origin <你的仓库地址> && git push -u origin main --tags`。
 2. 在 DSH 打开 **设置 → 插件 → 添加插件**。
 3. 粘贴复制后目录的绝对路径（例如 `C:\Users\you\Code\dsh-archive-viewer`）或仓库地址，确认安装。
 4. 若插件以停用状态加入，请启用它；刷新页面，若插件管理器提示需要重启则重启 DSH。
