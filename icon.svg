@@ -1,0 +1,17 @@
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="6.5" y="7" width="23" height="6.5" rx="2" fill="url(#archive-lid)" />
+  <path d="M8 13.5H28V25.5C28 27.1569 26.6569 28.5 25 28.5H11C9.34315 28.5 8 27.1569 8 25.5V13.5Z" fill="url(#archive-body)" />
+  <path d="M13.1 20.15C14.45 18.45 16.15 17.6 17.9 17.6C19.65 17.6 21.35 18.45 22.7 20.15C21.35 21.85 19.65 22.7 17.9 22.7C16.15 22.7 14.45 21.85 13.1 20.15Z" stroke="#FFFFFF" stroke-width="1.8" stroke-linejoin="round" />
+  <circle cx="17.9" cy="20.15" r="1.55" fill="#FFFFFF" />
+  <rect x="14.5" y="25.1" width="7" height="1.8" rx="0.9" fill="#FFFFFF" fill-opacity="0.8" />
+  <defs>
+    <linearGradient id="archive-lid" x1="6.5" y1="7" x2="29.5" y2="13.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67C7FE" />
+      <stop offset="1" stop-color="#3F77D8" />
+    </linearGradient>
+    <linearGradient id="archive-body" x1="9" y1="13.5" x2="27" y2="28.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7AC2FF" />
+      <stop offset="1" stop-color="#4A65E8" />
+    </linearGradient>
+  </defs>
+</svg>

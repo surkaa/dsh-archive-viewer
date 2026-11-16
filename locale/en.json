@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Show archived sessions",
+    "description": "Adds a switch to Settings > General that shows or hides archived sessions in the sidebar workspace list. Off matches View options > Hide archived, which turns off the sidebar's filtered archived-session view; on matches All conversations (show archived). The change is live and persists with the normal workspace view preference. It never unarchives or deletes a session."
+  }
+}

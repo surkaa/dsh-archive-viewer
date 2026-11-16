@@ -1,0 +1,3 @@
+- insert:
+    - id: archive-visibility
+      name: '@local/dsh-archive-viewer'
