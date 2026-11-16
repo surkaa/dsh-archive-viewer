@@ -13,6 +13,22 @@ Settings → General → **Show archived sessions**.
 
 When the sidebar workspace list is not composed, the switch is disabled and explains why.
 
+## Install on another computer
+
+The bundle has no build step and no runtime npm dependencies. Transfer the whole package directory (the folder containing `package.json`) and install it from DSH:
+
+1. Copy the directory to the other computer, or clone your repository there:
+   ```sh
+   git clone <your-repo-url> dsh-archive-viewer
+   ```
+   On the source machine, push the repository first: `git remote add origin <your-repo-url> && git push -u origin main --tags`.
+2. In DSH open **Settings → Plugins → Add plugin**.
+3. Paste the absolute path of the copied directory (for example `C:\Users\you\Code\dsh-archive-viewer`) or the repository URL, then confirm.
+4. If the bundle is added disabled, enable it. Refresh the page; restart DSH if the plugin manager asks for a restart.
+5. Open **Settings → General → Show archived sessions**.
+
+Keep the package directory where you installed it. A local-directory install links the profile to that folder, so moving or deleting the folder disables the plugin until you reinstall it from the new path.
+
 ## Compatibility
 
 The switch drives the same workspace-view store (persisted as `dsh.workspace.view.*`) that the shipped `@deepseek-ai/dsh-client-ui-workspace` plugin registers on its `sidebar.workspaces` slot. It was built and verified against DSH `0.2.2-rc.3`. If a future release stops exposing the live store instance there, the row detects the changed shape, disables itself, and logs `archive visibility: …` in the page console instead of writing to a detached copy. Re-check the binding after a DSH upgrade.
@@ -30,4 +46,20 @@ Only English and Simplified Chinese copy are bundled; other languages fall back 
 
 设置入口：**设置 > 通用 > 显示已归档会话**。若侧栏工作区列表不可用，开关会被禁用并说明原因。
 
-兼容性：开关直接驱动 DSH 自带 `@deepseek-ai/dsh-client-ui-workspace` 注册在 `sidebar.workspaces` 插槽上的工作区视图存储（持久化键 `dsh.workspace.view.*`），基于 DSH `0.2.2-rc.3` 验证。若未来版本不再在该插槽暴露实时存储实例，该行会识别变化并禁用自身，同时在页面控制台记录 `archive visibility: …`，不会写入脱离侧栏的副本。升级 DSH 后请重新验证。
+## 在另一台电脑上安装
+
+插件没有构建步骤，也没有运行时 npm 依赖。把整个包目录（包含 `package.json` 的文件夹）复制到另一台电脑，然后在 DSH 中安装：
+
+1. 复制目录，或直接克隆仓库：
+   ```sh
+   git clone <你的仓库地址> dsh-archive-viewer
+   ```
+   在源电脑上先推送：`git remote add origin <你的仓库地址> && git push -u origin main --tags`。
+2. 在 DSH 打开 **设置 → 插件 → 添加插件**。
+3. 粘贴复制后目录的绝对路径（例如 `C:\Users\you\Code\dsh-archive-viewer`）或仓库地址，确认安装。
+4. 若插件以停用状态加入，请启用它；刷新页面，若插件管理器提示需要重启则重启 DSH。
+5. 打开 **设置 > 通用 > 显示已归档会话**。
+
+请把包目录保留在安装时的位置。本地目录安装会把 profile 链接到该文件夹，移动或删除文件夹会让插件失效，需要从新路径重新安装。
+
+兼容性：开关直接驱动 DSH 自带 `@deepseek-ai/dsh-client-ui-workspace` 注册在 `sidebar.workspaces` 插槽上的工作区视图存储（持久化键 `dsh.workspace.view.*`），基于 DSH `0.2.2-rc.3` 验证。若目标电脑的 DSH 版本不同，请先在“设置 > 通用”查看当前版本；若未来版本不再在该插槽暴露实时存储实例，该行会识别变化并禁用自身，同时在页面控制台记录 `archive visibility: …`，不会写入脱离侧栏的副本。升级 DSH 后请重新验证。
