@@ -1,4 +1,11 @@
-# Show archived sessions
+# Archived sessions and search
+
+This bundle has two independent features:
+
+- a **Show archived sessions** preference row in **Settings > General**;
+- enabling DSH's **official full-text session index** for the sidebar search.
+
+## Archived session visibility
 
 Adds one preference row to **Settings > General** that controls whether archived sessions appear in the sidebar workspace list.
 
@@ -12,6 +19,19 @@ The switch applies immediately to the open sidebar and saves with the normal wor
 Settings → General → **Show archived sessions**.
 
 When the sidebar workspace list is not composed, the switch is disabled and explains why.
+
+## Full-text search
+
+The bundle enables DSH's official SQLite FTS5 session index, which the web profile ships disabled (`openAt: never`). Its patch overrides the shipped `session-query-sqlite` row to:
+
+- `path: $DSH_HOME/session-query.db` (durable, local);
+- `openAt: first-search`.
+
+With the index active, the sidebar search matches message content as well as session titles, workspace names, and Session IDs. The index is created on the first search and updated as sessions change. Disabling the bundle restores the title-only behavior; while it is disabled, the index file can be deleted.
+
+**Tokenizer limit:** the official backend uses SQLite FTS5 `unicode61`, which matches whole tokens and phrases, not arbitrary substrings. English words and exact phrases work; a continuous Chinese run is one token, so a Chinese query must align with a whole contiguous run. This bundle intentionally keeps the official tokenizer and does not implement a CJK substring fallback.
+
+After installing or updating, restart DSH or apply the Plugin Manager's reload so the Host configuration is recomposed.
 
 ## Install on another computer
 
@@ -44,6 +64,19 @@ Only English and Simplified Chinese copy are bundled; other languages fall back 
 切换会立即作用于当前侧栏，并随工作区视图偏好保存，刷新后仍然有效。该开关只控制显示，不会取消归档、删除或更改任何会话。该行会显示侧栏当前状态和已归档会话数量。
 
 设置入口：**设置 > 通用 > 显示已归档会话**。若侧栏工作区列表不可用，开关会被禁用并说明原因。
+
+## 内容搜索
+
+插件同时把官方 SQLite FTS5 会话索引打开（web profile 默认是 `openAt: never`），通过补丁覆盖 `session-query-sqlite`：
+
+- `path: $DSH_HOME/session-query.db`（本地持久化）；
+- `openAt: first-search`。
+
+启用后，侧栏搜索除了标题、工作区和 Session ID，还会检索用户与助手的消息正文。索引在第一次搜索时创建，并随会话更新。停用插件后恢复为只匹配标题；停用期间可以删除索引文件。
+
+**分词限制**：官方后端使用 FTS5 `unicode61`，按整 token/短语匹配，不匹配子串。英文单词和完整短语可用；连续中文会被当成一个 token，中文查询必须对齐一整段连续文本。本插件保留官方分词器，不提供中文子串回退。
+
+安装或更新后请重启 DSH，或在插件管理器按提示重新加载，让 Host 配置重新组合。
 
 ## 在另一台电脑上安装
 

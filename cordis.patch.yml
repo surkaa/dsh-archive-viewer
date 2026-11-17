@@ -1,3 +1,20 @@
 - insert:
     - id: archive-visibility
       name: '@local/dsh-archive-viewer'
+
+# Enable DSH's official full-text session index for the web sidebar search.
+#
+# The base and web-app bundles ship this row as `path: ':memory:'` with
+# `openAt: never`, so content search fails with
+# SESSION_QUERY_SEARCH_DISABLED and the sidebar silently falls back to
+# title/workspace/Session-id matches. `first-search` keeps startup quiet and
+# opens a durable index on the first search.
+#
+# The official `unicode61` tokenizer matches whole tokens, not substrings, so
+# continuous Chinese text stays one token: English queries and exact whole
+# phrases work, while Chinese content substrings remain limited.
+- id: session-query-sqlite
+  name: '@deepseek-ai/dsh-session-query-sqlite'
+  config:
+    path: !!js dshHomePath('session-query.db')
+    openAt: first-search

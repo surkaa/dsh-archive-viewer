@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Show archived sessions",
-    "description": "Adds a switch to Settings > General that shows or hides archived sessions in the sidebar workspace list. Off matches View options > Hide archived, which turns off the sidebar's filtered archived-session view; on matches All conversations (show archived). The change is live and persists with the normal workspace view preference. It never unarchives or deletes a session."
+    "title": "Archived sessions and search",
+    "description": "Adds a Show archived sessions switch to Settings > General and enables DSH's official full-text session index for the sidebar search. The switch only controls archived visibility. The index makes message content searchable, but the official unicode61 tokenizer matches whole tokens/phrases rather than substrings, so continuous Chinese content remains limited. Disabling the bundle reverts search to title-only."
   }
 }
